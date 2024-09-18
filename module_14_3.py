@@ -6,7 +6,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
-api = "7436010173:AAF0bOXiEmIU7Dy6q99EKGTOKMW9i5atNfs"
+api = ''
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -34,7 +34,7 @@ kb.add(button2)
 
 @dp.message_handler(commands='start')
 async def start_message(message: types.Message):
-    await message.answer("Привет! Я бот, помогающий твоему здоровью.", reply_markup=start_menu)
+    await message.answer('Привет! Я бот, помогающий твоему здоровью.', reply_markup=start_menu)
 
 
 @dp.message_handler(text='Купить')
@@ -139,14 +139,14 @@ async def handle_purchase(call: types.CallbackQuery):
 
     product_name = product_names.get(product_code, 'Продукт')
 
-    await call.message.answer(f"Вы успешно приобрели {product_name}!")
+    await call.message.answer(f'Вы успешно приобрели {product_name}!')
     await call.answer()
 
 
 @dp.callback_query_handler(text='formulas')
 async def get_formulas(call: types.CallbackQuery):
     await call.message.answer(
-        "Формула расчёта калорий:\n10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) – 161"
+        'Формула расчёта калорий:\n10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) – 161'
     )
     await call.answer()
 
